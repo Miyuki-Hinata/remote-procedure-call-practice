@@ -23,26 +23,30 @@ A client should send a JSON object in the following format:
   "params": [param1, param2, ...],
   "id": "unique_request_id"
 }
-
+```
 ### Example Request
+```json
 {
   "method": "floor",
   "params": [10, 3],
   "id": "request_1"
 }
+```
 ### Example Response
-
+```json
 {
   "result": 3,
   "result_type": "int",
   "id": "request_1"
 }
-
-### How to Run the Server
+```
+# How to Run the Server
 Clone this repository.
 
 Run the following command to start the server:
+```shell
 python3 server.py
+```
 
 The server will start listening on localhost:12345.
 
@@ -52,16 +56,21 @@ You can use the provided client.js file to send requests to the server. The clie
 Running the Client
 Ensure that the server is running.
 Run the following command to send a request to the server using the client:
+```shell
 node client.js <method> <id> <param1> <param2> ...
+```
 
 For example, to calculate the floor division of 10 by 3 with the request ID req1, you would run:
+```shell
 node client.js floor req1 10 3
+```
 
 This sends a request to execute the floor method on the server with parameters 10 and 3, and the server responds with the result.
 
 Client Explanation
 <method>: The name of the method to call (e.g., floor, nroot, reverse, etc.).
+```shell
 <id>: A unique ID for the request (e.g., req1).
 <param1> <param2> ...: The parameters to pass to the method. Numbers are automatically parsed, and strings are sent as-is.
-
+```
 The client will receive the server's response and display it in the terminal.
